@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SHOWHUB</title>
+    <link rel="icon" type="image/x-icon" href="2.jpg">
+    <style>
+        body {
+            background-image: url("1.png");
+            background-repeat: no-repeat;
+        }
+
+        header {
+            width: 100%;
+            height: 100%;
+            background-size: 50% 90%;
+            background-repeat: no-repeat;
+            background-color: black;
+            width: 260px;
+            background-position: bottom right;
+            position: relative;
+        }
+
+        label {
+            text-align: left;
+        }
+
+        div {
+            border: 1px solid black;
+            background-color: black;
+            text-align: center;
+            vertical-align: middle;
+            float: left;
+            margin: 30px;
+            opacity: 0.8;
+            margin-left: 595px;
+            padding: 20px;
+            padding-top: 0px;
+            font-weight: bold;
+            height: 440px;
+            width: 360px;
+            border-radius: 30px;
+        }
+
+        div p {
+            color: aliceblue;
+            size: 11px;
+            text-align: left;
+        }
+
+        div p a {
+            color: pink;
+            size: 11px;
+        }
+
+        .put {
+            float: left;
+        }
+    </style>
+</head>
+
+<body width="100%" height="100%">
+    <header>
+        <h1>
+            <font color="red" size="45">SHOWHUB</font>
+        </h1>
+    </header><br><br><br>
+    <div>
+        <label align="left">
+            <font color="white" size="25">Sign in
+                <br>
+            </font>
+        </label>
+        <input style="height:40px;background-color: lightcyan; opacity: 0.5;border-radius: 3px;" type="text"
+            id="email" placeholder="Enter username" size="50">
+        <br><br>
+        <input style="height:40px;background-color: lightcyan; opacity: 0.5;border-radius: 3px;" type="password"
+            id="psw" placeholder="Enter password" size="50" height="20px">
+        <br><br>
+        <a href="home.html"><input style="height:40px;" type="button" id="login" onclick="saveData()" value="LOG IN"></a>
+        <br><br>
+        <input type="checkbox" class="put" checked>
+        <p>Remember me</p></input><br>
+        <p>Not an existing user?<a href="new.html">Create an account.</a></p>
+    </div>
+    <script>
+    function saveData()
+{
+let email,psw;
+email=document.getElementById("email").value;
+
+psw=document.getElementById("psw").value;
+
+let user_records=new Array();
+user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+if(user_records.some((v)=>{return v.email==email && v.psw==psw}))
+{
+  alert("Login Pass");
+ 
+  window.location.href="home.html";
+}
+else
+{
+  alert('Login Fail');
+  window.location.href="new.html";
+}
+
+}
+    </script>
+</body>
+
+</html>

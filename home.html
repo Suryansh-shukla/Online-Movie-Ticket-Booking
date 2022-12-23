@@ -1,0 +1,283 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Online Movie Ticket</title>
+    <link rel="icon" type="image/x-icon" href="2.jpg">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        .div1 {
+            width: 80px;
+            height: 40px;
+            margin-top: 5px;
+            padding: 10px 10px 10px 10px;
+            border: 3px solid rgb(238, 238, 240);
+            box-shadow: 14px red;
+        }
+        nav {
+            width: 100%;
+            height: 55px;
+            padding: 0px 70px;
+            background: black;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 2em;
+            letter-spacing: 2px;
+            color: red;
+        }
+
+        .loc {
+            margin-right: 60px;
+            color: lightblue;
+            display: flex;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+        }
+
+
+
+        #list p {
+            font-size: 35px;
+            text-align: center;
+            letter-spacing: 2px;
+            padding: 50px;
+        }
+
+        #box1 {
+            background-color: black;
+            font-size: 20px;
+            margin-left: 500px;
+            border: 1px solid black;
+            float: left;
+        }
+
+        #now {
+            text-decoration: none;
+            color: white;
+        }
+
+        #soon {
+            text-decoration: none;
+            color: white;
+        }
+
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin: auto;
+        }
+
+        .mySlides {
+            display:block;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .next {
+            right: 0;
+            border-radius: 5px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .one {
+
+            margin-left: 7%;
+            float: left;
+            width: 30%;
+            height: 40%;
+        }
+
+        .two {
+            float: left;
+            width: 30%;
+            height: 40%;
+        }
+
+        .three {
+            float: right;
+            width: 30%;
+            height: 40%;
+        }
+
+        .img {
+
+            width: 50%;
+            height: 40%;
+
+        }
+    </style>
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+        function highlight()
+        {
+            let clip = document.querySelector(".vid");
+           clip.addEventListener("mouseover", function (e) {
+            clip.play();
+        })
+        clip.addEventListener("mouseout", function (e) {
+            clip.pause();
+        }) 
+        }
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="2.jpg" alt="ball" style="height:40px ;width:40px;margin-top:5px;">  SHOW HUB</div>
+            <div class="loc">location
+                <select>
+                    <option>VELLORE</option>
+                    <option>CHENNAI</option>
+                    <option>KANPUR</option>
+                    <option>JAIPUR</option>
+                    <option>BANGLORE</option>
+                    <option>MUMBAI</option>
+                    <option>GURGAON</option>
+                    <option>NOIDA</option>
+                </select>
+            </div>
+            <div class="menu">
+                <a href="home.html">HOME</a>
+                <a href="event.html">EVENT</a>
+                <a href="login.html">Login/Signup</a>
+            </div>
+        </nav>
+    </header>
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="img1.jpg" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="img2.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="brahma.jpg" style="width:100%">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+    <div id="list">
+        <p>MOVIES</p>
+    </div>
+    <br>
+    <br>
+    <div id="box1">
+        <a href="#" id="now">NOW SHOWING</a>
+    </div>
+    <div id="box1">
+        <a href="#" id="soon">COMING SOON</a>
+    </div>
+    <br>
+    <br>
+    <div class="one">
+       <a href="2.html"><img src="s.jpg" class="img"><div style="background-color: red; height:40px; width:255px;margin-top: -5px;"><center>BOOK</center></div></a>
+    </div>
+    <div class="two">
+        <a href="2.html"><img src="s1.jpg" class="img"><div style="background-color: red; height:40px; width:255px;margin-top: -5px;"><center>BOOK</center></div></a>
+    </div>
+    <div class="three">
+       <a href="2.html"> <img src="s2.jpg" class="img"><div style="background-color: red; height:40px; width:255px;margin-top: -5px;"><center>BOOK</center></div></a>
+    </div>
+    <br><br>
+    <br>
+    <div class="one">
+        <a href="2.html"><img src="s4.jpg" class="img"><div style="background-color: red; height:40px; width:255px;margin-top: -5px;"><center>BOOK</center></div></a>
+    </div>
+    <div class="two">
+        <a href="2.html"><img src="s5.jpg" class="img"><div style="background-color: red; height:40px; width:255px;margin-top: -5px;"><center>BOOK</center></div></a>
+    </div>
+    <div class="three">
+        <a href="2.html"><img src="s6.jpg" class="img"><div style="background-color: red; height:40px; width:255px;margin-top: -5px;"><center>BOOK</center></div></a>
+    </div>
+    <br><br>
+    <br>
+    <div class="one">
+       <a href="2.html"> <img src="s7.jpg" class="img"><div style="background-color: red; height:40px; width:255px;margin-top: -5px;"><center>BOOK</center></div></a>
+    </div>
+    <div class="two">
+       <a href="2.html"> <img src="s8.jpg" class="img"><div style="background-color: red; height:40px; width:255px;margin-top: -5px;"><center>BOOK</center></div></a>
+    </div>
+    <div class="three">
+       <a href="2.html"> <img src="s3.jpg" class="img"><div style="background-color: red; height:40px; width:255px;margin-top: -5px;"><center>BOOK</center></div></a>
+    </div>
+    <br><br>
+    <br>
+</body>
+
+</html>

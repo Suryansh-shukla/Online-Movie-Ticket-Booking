@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        SHOWHUB
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" type="image/x-icon" href="2.jpg">
+    <style>
+        body {
+            background-image: url("3.jpg");
+            background-repeat: no-repeat;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .slideshow-container {
+            max-width: 500px;
+            position: fixed;
+            margin-left: 180px;
+            margin-top: 80px;
+            width: 460px;
+            height: 520px;
+        }
+
+        .mySlides {
+            display: inline;
+        }
+
+        .slides {
+            overflow-x: hidden;
+            position: relative;
+            scroll-behavior: initial;
+            scroll-snap-type: x mandatory;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            animation-duration: 4s;
+
+        }
+        .prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .active {
+            background-color: #717171;
+        }
+
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        .right {
+            float: right;
+            color: aliceblue;
+            margin-top: 80px;
+            margin-right: 180px;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        table th {
+            text-align: left;
+        }
+    </style>
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="slideshow-container">
+        <div class="mySlides fade slides">
+            <img src="4.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade slides">
+            <img src="5.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade slides">
+            <img src="6.jpg" style="width:100%">
+        </div>
+        <div class="mySlides fade slides">
+            <img src="7.jpg" style="width:100%">
+        </div>
+        <div class="mySlides fade slides">
+            <img src="8.jpg" style="width:100%">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <div class="right">
+        <fieldset>
+            <legend>
+                Create your account
+            </legend>
+            <table>
+                <tr>
+                    <th>
+                        First name:
+                    </th>
+                    <th>
+                        Last name:
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="Enter your firstname" id="name" size="20">
+                    </td>
+                    <td>
+                        <input type="text" placeholder="Enter your lastname" size="20">
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="3">
+                        Mobile/E-mail address:
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <input type="tel" id="email" placeholder="mobile numbe or email address" size="48" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="3">
+                        Create Password:
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <input type="password" id="psw" placeholder="New Password" size="48" maxlength="32" minlength="8"
+                            required>
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="3">
+                        Date of birth:
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <input type="date" placeholder="xx-xx-xxxx" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="3">
+                        Gender:
+                    </th>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; background-color: white; color: black">
+                        Female <input type="radio" name="Gender" value="Female" size="16">
+                    </td>
+                    <td style="border: 1px solid black; background-color: white;color: black;">
+                        Male<input type="radio" name="Gender" value="Male" size="16">
+                    </td>
+                    <td style="border: 1px solid black; background-color: white;color: black;">
+                        Custom<input type="radio" name="Gender" value="Custom" size="16">
+                    </td>
+                </tr>
+            </table>
+            <br><br><br>
+            <center>
+                <a href="login.html"> <input type="button" id="login" value="Sign In" onclick="saveData()" style="height:40px;"></a>
+                <p><a style="color: pink;text-align: center;size: 11px;" href="login.html">Already have an account?</a>
+                </p>
+            </center>
+        </fieldset>
+    </div>
+    <script>
+        function saveData()
+{
+let name,email,psw;
+name=document.getElementById("name").value;
+email=document.getElementById("email").value;
+
+psw=document.getElementById("psw").value;
+
+let user_records=new Array();
+user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+
+  user_records.push({
+  "name":name,
+  "email":email,
+   "psw":psw
+  });
+localStorage.setItem("users",JSON.stringify(user_records));
+
+
+}
+    </script>
+</body>
+
+</html>

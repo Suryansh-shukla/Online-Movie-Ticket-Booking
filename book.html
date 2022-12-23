@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Online Movie Ticket</title>
+    <link rel="icon" type="image/x-icon" href="2.jpg">
+    <link rel="javascript" href="script.js" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        nav {
+            width: 100%;
+            height: 55px;
+            padding: 0px 70px;
+            background: black;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .div1 {
+            width: 80px;
+            height: 40px;
+            margin-top: 5px;
+            padding: 10px 10px 10px 10px;
+            border: 3px solid rgb(238, 238, 240);
+            box-shadow: 14px red;
+        }
+
+
+        .logo {
+            font-weight: bold;
+            font-size: 2em;
+            letter-spacing: 2px;
+            color: red;
+        }
+
+.two{
+    float:inline-start;
+    margin-left: 7%;
+    width:30%
+}
+        .one {
+
+            margin-left: 7%;
+            float: left;
+            width: 30%;
+            height: 40%;
+        }
+
+        .three {
+            float: inline-end;
+            width: 30%;
+            height: 40%;
+        }
+
+        table {
+            border: 12px rgb(7, 9, 10);
+
+        }
+
+        .mc {
+            background-color: lightslategrey;
+        }
+
+        table td {
+            border: 12px rgb(1, 13, 24);
+            padding: 20px 20px 20px 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo"> <img src="2.jpg" alt="ball" style="height:40px ;width:40px;margin-top:5px;">SHOW HUB
+            </div>
+            <div class="menu">
+                <div class="div1">
+                    <a href="home.html">HOME</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="one">
+        <h3>Love Today-Tamil</h3>
+        <h5>Tamil|2D|U/A</h5>
+    </div><br><br>
+    <div class="two">
+        <table>
+            <tr class="mc">
+                <td class="mc">
+                    <h5>Date</h5>
+                </td>
+                <td>
+                    <h4>18/11/2022 11:50 A.M.</h4>
+                </td>
+            </tr>
+            <tr class="mc">
+                <td class="mc">
+                    <h5>Theatre</h5>
+                </td>
+                <td>
+                    <h4>Inox Selvam Square-Vellore</h4>
+                </td>
+            </tr>
+            <tr class="mc">
+                <td class="mc">
+                    <h5>screen</h5>
+                </td>
+                <td>
+                    <h4>Screen-1</h4>
+                </td>
+            </tr>
+            <tr class="mc">
+                <td class="mc">
+                    <h5>Seat</h5>
+                </td>
+                <td>
+                    <h4>CLUB|F</h4>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    </div><br>
+    <div class="one">
+        <h5>contact details</h5>
+        <div>
+            E-mail <input type="email" style="height:40px ;border:2px;border-radius: 2px;" placeholder="E-mail"
+                size="50" autofocus>&nbsp;&nbsp;
+            Mobile <input type="number" style="height:40px ;border:2px;border-radius: 2px;" placeholder="Mobile"
+                size="50" autofocus>
+        </div>
+    </div>
+    <div class="three"
+        style="float: right;height: 550px;width: 200px;display: flex;margin-right: 200px;margin-top: 100px;">
+        <h5>Order Summary </h5>
+        <div>
+            <table class="tn-table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <h5>Tickets x1</h5>
+                        </td>
+                        <td>
+                            <h5><span id="movie">0</span></h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>1 Ticket(s)</p>
+                        </td>
+                        <td>
+                            <p>₹324x1</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="font-weight:bold;text-decoration: underline;">
+                            <p>Internet handling fees</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Convenience Fee</p>
+                        </td>
+                        <td>
+                            <p>₹67</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>CGST 9% + SGST 9%<br> 33AAACO9802B1ZX</p>
+                        </td>
+                        <td>
+                            <p>₹13.51</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h5>Total</h5>
+            <h3>₹653</h3>
+            <a href="Bill.html"><input type="submit" value="CONTINUE"></a>
+        </div>
+        <div style="background: #f5f5f5 !important; border-color: #e2e2e2 !important; color: #000; margin-top: 20px;">
+            <a href="2.html"><input type="submit" value="CANCEL"></a>
+
+        </div>
+    </div>
+    <div class="b4">
+        <h5>Promotion Code</h5>
+
+        <div style="position: relative;">
+
+            <input name="txtCode" type="text" placeholder="Enter Promotional Code"
+                style="height:40px ;border:2px;border-radius: 2px;" size="50" autofocus autocomplete="off">
+
+
+        </div>
+        <input type="button" name="apply" value="Apply" style="height: 40px;width:60px;margin-left:180px;"
+            onclick="AjaxCalls.applyOffer(); return false;">
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
