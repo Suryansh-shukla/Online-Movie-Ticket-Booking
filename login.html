@@ -77,7 +77,7 @@
         <input style="height:40px;background-color: lightcyan; opacity: 0.5;border-radius: 3px;" type="password"
             id="psw" placeholder="Enter password" size="50" height="20px">
         <br><br>
-        <a href="home.html"><input style="height:40px;" type="button" id="login" onclick="saveData()" value="LOG IN"></a>
+        <a href="index.html"><input style="height:40px;" type="button" id="login" onclick="saveData()" value="LOG IN"></a>
         <br><br>
         <input type="checkbox" class="put" checked>
         <p>Remember me</p></input><br>
@@ -97,7 +97,7 @@ if(user_records.some((v)=>{return v.email==email && v.psw==psw}))
 {
   alert("Login Pass");
  
-  window.location.href="home.html";
+  window.location.href="index.html";
 }
 else
 {
