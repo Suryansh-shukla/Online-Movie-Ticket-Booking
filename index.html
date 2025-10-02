@@ -1,283 +1,317 @@
 <!doctype html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Online Movie Ticket</title>
-    <link rel="icon" type="image/x-icon" href="2.jpg">
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            font-family: sans-serif;
-        }
-        .div1 {
-            width: 80px;
-            height: 40px;
-            margin-top: 5px;
-            padding: 10px 10px 10px 10px;
-            border: 3px solid rgb(238, 238, 240);
-            box-shadow: 14px red;
-        }
-        nav {
-            width: 100%;
-            height: 55px;
-            padding: 0px 70px;
-            background: black;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+  <meta charset="UTF-8">
+  <title>Online Movie Ticket</title>
+  <link rel="icon" type="image/x-icon" href="2.jpg">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
 
-        .logo {
-            font-weight: bold;
-            font-size: 2em;
-            letter-spacing: 2px;
-            color: red;
-        }
+    /* Background Gradient */
+    body {
+      background: linear-gradient(135deg, #0f0f0f, #1a1a40, #222);
+      color: #eee;
+      min-height: 100vh;
+    }
 
-        .loc {
-            margin-right: 60px;
-            color: lightblue;
-            display: flex;
-        }
+    /* Navbar */
+    nav {
+      width: 100%;
+      height: 55px;
+      padding: 0px 70px;
+      background: rgba(0,0,0,0.9);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
 
-        .menu a {
-            text-decoration: none;
-            color: white;
-            padding: 10px 20px;
-        }
+    .logo {
+      font-weight: bold;
+      font-size: 1.8em;
+      letter-spacing: 2px;
+      color: red;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
+    .loc {
+      margin-right: 60px;
+      color: lightblue;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
+    .menu a {
+      text-decoration: none;
+      color: white;
+      padding: 10px 15px;
+      transition: background 0.3s;
+    }
 
-        #list p {
-            font-size: 35px;
-            text-align: center;
-            letter-spacing: 2px;
-            padding: 50px;
-        }
+    .menu a:hover {
+      background: red;
+      border-radius: 5px;
+    }
 
-        #box1 {
-            background-color: black;
-            font-size: 20px;
-            margin-left: 500px;
-            border: 1px solid black;
-            float: left;
-        }
+    /* Slideshow */
+    .slideshow-container {
+      max-width: 100%;
+      position: relative;
+      margin: auto;
+    }
 
-        #now {
-            text-decoration: none;
-            color: white;
-        }
+    .mySlides {
+      display: none;
+    }
 
-        #soon {
-            text-decoration: none;
-            color: white;
-        }
+    .mySlides img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+    }
 
-        .slideshow-container {
-            max-width: 100%;
-            position: relative;
-            margin: auto;
-        }
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 50%;
+      user-select: none;
+    }
 
-        .mySlides {
-            display:block;
-        }
+    .next { right: 10px; }
+    .prev { left: 10px; }
 
-        .prev,
-        .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            margin-top: -22px;
-            padding: 16px;
-            color: black;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-        }
+    .prev:hover,
+    .next:hover {
+      background-color: red;
+    }
 
+    /* Title Section */
+    #list p {
+      font-size: 35px;
+      text-align: center;
+      letter-spacing: 2px;
+      padding: 40px 0;
+      color: #ffdd57;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+    }
 
+    /* Movie Category Buttons */
+    .box-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
-        .fade {
-            animation-name: fade;
-            animation-duration: 1.5s;
-        }
+    .box1 {
+      display: inline-block;
+      background-color: black;
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
 
-        @keyframes fade {
-            from {
-                opacity: .4
-            }
+    .box1 a {
+      text-decoration: none;
+      color: white;
+    }
 
-            to {
-                opacity: 1
-            }
-        }
+    .box1:hover {
+      background: red;
+      transform: scale(1.05);
+    }
 
-        .next {
-            right: 0;
-            border-radius: 5px;
-        }
+    /* Movies Grid */
+    .movie-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px 5%;
+    }
 
-        .prev:hover,
-        .next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
+    .movie {
+      background: #111;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
 
-        .one {
+    .movie img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
 
-            margin-left: 7%;
-            float: left;
-            width: 30%;
-            height: 40%;
-        }
+    /* Floating hover effect */
+    .movie:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(255,0,0,0.4);
+    }
 
-        .two {
-            float: left;
-            width: 30%;
-            height: 40%;
-        }
+    .movie:hover img {
+      transform: scale(1.08);
+    }
 
-        .three {
-            float: right;
-            width: 30%;
-            height: 40%;
-        }
+    .book-btn {
+      background: red;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      transition: background 0.3s;
+    }
 
-        .img {
+    .book-btn:hover {
+      background: darkred;
+    }
+  </style>
+  <script>
+    var slideIndex = 1;
+    window.onload = function() {
+      showSlides(slideIndex);
+    }
 
-            width: 50%;
-            height: 40%;
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
 
-        }
-    </style>
-    <script>
-        var slideIndex = 1;
-        showSlides(slideIndex);
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
-        function showSlides(n) {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-            var dots = document.getElementsByClassName("dot");
-            if (n > slides.length) { slideIndex = 1 }
-            if (n < 1) { slideIndex = slides.length }
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex - 1].style.display = "block";
-        }
-        function highlight()
-        {
-            let clip = document.querySelector(".vid");
-           clip.addEventListener("mouseover", function (e) {
-            clip.play();
-        })
-        clip.addEventListener("mouseout", function (e) {
-            clip.pause();
-        }) 
-        }
-    </script>
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex - 1].style.display = "block";
+    }
+
+    // Auto slideshow every 4s
+    setInterval(function() { plusSlides(1); }, 4000);
+  </script>
 </head>
 
 <body>
 
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="2.jpg" alt="ball" style="height:40px ;width:40px;margin-top:5px;">  SHOW HUB</div>
-            <div class="loc">location
-                <select>
-                    <option>VELLORE</option>
-                    <option>CHENNAI</option>
-                    <option>KANPUR</option>
-                    <option>JAIPUR</option>
-                    <option>BANGLORE</option>
-                    <option>MUMBAI</option>
-                    <option>GURGAON</option>
-                    <option>NOIDA</option>
-                </select>
-            </div>
-            <div class="menu">
-                <a href="index.html">HOME</a>
-                <a href="event.html">EVENT</a>
-                <a href="login.html">Login/Signup</a>
-            </div>
-        </nav>
-    </header>
-    <div class="slideshow-container">
-        <div class="mySlides fade">
-            <img src="img1.jpg" style="width:100%">
-        </div>
-        <div class="mySlides fade">
-            <img src="img2.jpg" style="width:100%">
-        </div>
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="2.jpg" alt="logo" style="height:40px;width:40px;">
+        SHOW HUB
+      </div>
+      <div class="loc">Location
+        <select>
+          <option>VELLORE</option>
+          <option>CHENNAI</option>
+          <option>KANPUR</option>
+          <option>JAIPUR</option>
+          <option>BANGALORE</option>
+          <option>MUMBAI</option>
+          <option>GURGAON</option>
+          <option>NOIDA</option>
+        </select>
+      </div>
+      <div class="menu">
+        <a href="home.html">HOME</a>
+        <a href="event.html">EVENT</a>
+        <a href="https://www.google.com/maps/place/VIT/">LOCATION</a>
+        <a href="login.html">Login/Signup</a>
+      </div>
+    </nav>
+  </header>
 
-        <div class="mySlides fade">
-            <img src="brahma.jpg" style="width:100%">
-        </div>
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  <!-- Slideshow -->
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+      <img src="img1.jpg" alt="Movie Banner 1">
     </div>
-    <br>
-    <div id="list">
-        <p>MOVIES</p>
+    <div class="mySlides fade">
+      <img src="img2.jpg" alt="Movie Banner 2">
     </div>
-    <br>
-    <br>
-    <div id="box1">
-        <a href="#" id="now">NOW SHOWING</a>
+    <div class="mySlides fade">
+      <img src="brahma.jpg" alt="Movie Banner 3">
     </div>
-    <div id="box1">
-        <a href="#" id="soon">COMING SOON</a>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+
+  <!-- Movies Title -->
+  <div id="list">
+    <p>MOVIES</p>
+  </div>
+
+  <!-- Now Showing / Coming Soon -->
+  <div class="box-container">
+    <div class="box1"><a href="#">NOW SHOWING</a></div>
+    <div class="box1"><a href="#">COMING SOON</a></div>
+  </div>
+
+  <!-- Movie Grid -->
+  <div class="movie-grid">
+    <div class="movie">
+      <img src="s.jpg" alt="Movie 1">
+      <a href="2.html" class="book-btn">BOOK</a>
     </div>
-    <br>
-    <br>
-    <div class="one">
-       <a href="2.html"><img src="s.jpg" class="img"><div style="background-color: red; height:40px; width:255px;margin-top: -5px;"><center>BOOK</center></div></a>
+    <div class="movie">
+      <img src="s1.jpg" alt="Movie 2">
+      <a href="2.html" class="book-btn">BOOK</a>
     </div>
-    <div class="two">
-        <a href="2.html"><img src="s1.jpg" class="img"><div style="background-color: red; height:40px; width:255px;margin-top: -5px;"><center>BOOK</center></div></a>
+    <div class="movie">
+      <img src="s2.jpg" alt="Movie 3">
+      <a href="2.html" class="book-btn">BOOK</a>
     </div>
-    <div class="three">
-       <a href="2.html"> <img src="s2.jpg" class="img"><div style="background-color: red; height:40px; width:255px;margin-top: -5px;"><center>BOOK</center></div></a>
+    <div class="movie">
+      <img src="s4.jpg" alt="Movie 4">
+      <a href="2.html" class="book-btn">BOOK</a>
     </div>
-    <br><br>
-    <br>
-    <div class="one">
-        <a href="2.html"><img src="s4.jpg" class="img"><div style="background-color: red; height:40px; width:255px;margin-top: -5px;"><center>BOOK</center></div></a>
+    <div class="movie">
+      <img src="s5.jpg" alt="Movie 5">
+      <a href="2.html" class="book-btn">BOOK</a>
     </div>
-    <div class="two">
-        <a href="2.html"><img src="s5.jpg" class="img"><div style="background-color: red; height:40px; width:255px;margin-top: -5px;"><center>BOOK</center></div></a>
+    <div class="movie">
+      <img src="s6.jpg" alt="Movie 6">
+      <a href="2.html" class="book-btn">BOOK</a>
     </div>
-    <div class="three">
-        <a href="2.html"><img src="s6.jpg" class="img"><div style="background-color: red; height:40px; width:255px;margin-top: -5px;"><center>BOOK</center></div></a>
+    <div class="movie">
+      <img src="s7.jpg" alt="Movie 7">
+      <a href="2.html" class="book-btn">BOOK</a>
     </div>
-    <br><br>
-    <br>
-    <div class="one">
-       <a href="2.html"> <img src="s7.jpg" class="img"><div style="background-color: red; height:40px; width:255px;margin-top: -5px;"><center>BOOK</center></div></a>
+    <div class="movie">
+      <img src="s8.jpg" alt="Movie 8">
+      <a href="2.html" class="book-btn">BOOK</a>
     </div>
-    <div class="two">
-       <a href="2.html"> <img src="s8.jpg" class="img"><div style="background-color: red; height:40px; width:255px;margin-top: -5px;"><center>BOOK</center></div></a>
+    <div class="movie">
+      <img src="s3.jpg" alt="Movie 9">
+      <a href="2.html" class="book-btn">BOOK</a>
     </div>
-    <div class="three">
-       <a href="2.html"> <img src="s3.jpg" class="img"><div style="background-color: red; height:40px; width:255px;margin-top: -5px;"><center>BOOK</center></div></a>
-    </div>
-    <br><br>
-    <br>
+  </div>
+
 </body>
-
 </html>
