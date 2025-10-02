@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Movie Ticket</title>
     <link rel="icon" type="image/x-icon" href="2.jpg">
-    <link rel="javascript" href="script.js" />
     <style>
         * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
             font-family: sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e1e1e, #2b2b2b);
+            color: white;
+            padding: 20px;
         }
 
         nav {
@@ -22,207 +28,212 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.8em;
+            letter-spacing: 2px;
+            color: red;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .menu a {
             text-decoration: none;
             color: white;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 6px;
+            transition: 0.3s;
         }
 
-        .div1 {
-            width: 80px;
-            height: 40px;
-            margin-top: 5px;
-            padding: 10px 10px 10px 10px;
-            border: 3px solid rgb(238, 238, 240);
-            box-shadow: 14px red;
+        .menu a:hover {
+            background: red;
+            border-color: red;
         }
 
-
-        .logo {
-            font-weight: bold;
-            font-size: 2em;
-            letter-spacing: 2px;
-            color: red;
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 20px;
         }
 
-.two{
-    float:inline-start;
-    margin-left: 7%;
-    width:30%
-}
-        .one {
-
-            margin-left: 7%;
-            float: left;
-            width: 30%;
-            height: 40%;
+        .movie-details, .contact-form, .promo-section {
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+            flex: 1;
         }
 
-        .three {
-            float: inline-end;
-            width: 30%;
-            height: 40%;
+        .movie-details h3 {
+            color: #ff4444;
         }
 
         table {
-            border: 12px rgb(7, 9, 10);
-
-        }
-
-        .mc {
-            background-color: lightslategrey;
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
         }
 
         table td {
-            border: 12px rgb(1, 13, 24);
-            padding: 20px 20px 20px 20px;
+            padding: 12px;
+            border-bottom: 1px solid #555;
+        }
 
+        .order-summary {
+            background: #444;
+            padding: 20px;
+            border-radius: 10px;
+            width: 280px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+        }
+
+        .order-summary h5 {
+            margin-bottom: 10px;
+            color: #ffcc00;
+        }
+
+        .order-summary table td {
+            padding: 8px 0;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"] {
+            width: 90%;
+            padding: 8px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 6px;
+        }
+
+        input[type="submit"],
+        input[type="button"] {
+            padding: 10px 20px;
+            background: red;
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        input[type="submit"]:hover,
+        input[type="button"]:hover {
+            background: #ff3333;
+        }
+
+        .promo-section input[type="text"] {
+            width: 70%;
+            display: inline-block;
+        }
+
+        .promo-section input[type="button"] {
+            background: #ffcc00;
+            color: black;
+        }
+
+        .total {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #00ff99;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+            .order-summary {
+                width: 100%;
+            }
         }
     </style>
 </head>
-
 <body>
 
     <header>
         <nav>
-            <div class="logo"> <img src="2.jpg" alt="ball" style="height:40px ;width:40px;margin-top:5px;">SHOW HUB
+            <div class="logo">
+                <img src="2.jpg" alt="logo" style="height:40px;width:40px;border-radius:50%;">
+                SHOW HUB
             </div>
             <div class="menu">
-                <div class="div1">
-                    <a href="index.html">HOME</a>
-                </div>
+                <a href="home.html">HOME</a>
             </div>
         </nav>
     </header>
-    <div class="one">
-        <h3>Love Today-Tamil</h3>
-        <h5>Tamil|2D|U/A</h5>
-    </div><br><br>
-    <div class="two">
-        <table>
-            <tr class="mc">
-                <td class="mc">
-                    <h5>Date</h5>
-                </td>
-                <td>
-                    <h4>18/11/2022 11:50 A.M.</h4>
-                </td>
-            </tr>
-            <tr class="mc">
-                <td class="mc">
-                    <h5>Theatre</h5>
-                </td>
-                <td>
-                    <h4>Inox Selvam Square-Vellore</h4>
-                </td>
-            </tr>
-            <tr class="mc">
-                <td class="mc">
-                    <h5>screen</h5>
-                </td>
-                <td>
-                    <h4>Screen-1</h4>
-                </td>
-            </tr>
-            <tr class="mc">
-                <td class="mc">
-                    <h5>Seat</h5>
-                </td>
-                <td>
-                    <h4>CLUB|F</h4>
-                </td>
-            </tr>
-        </table>
-    </div>
 
-    </div><br>
-    <div class="one">
-        <h5>contact details</h5>
-        <div>
-            E-mail <input type="email" style="height:40px ;border:2px;border-radius: 2px;" placeholder="E-mail"
-                size="50" autofocus>&nbsp;&nbsp;
-            Mobile <input type="number" style="height:40px ;border:2px;border-radius: 2px;" placeholder="Mobile"
-                size="50" autofocus>
-        </div>
-    </div>
-    <div class="three"
-        style="float: right;height: 550px;width: 200px;display: flex;margin-right: 200px;margin-top: 100px;">
-        <h5>Order Summary </h5>
-        <div>
-            <table class="tn-table">
-                <tbody>
-                    <tr>
-                        <td>
-                            <h5>Tickets x1</h5>
-                        </td>
-                        <td>
-                            <h5><span id="movie">0</span></h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>1 Ticket(s)</p>
-                        </td>
-                        <td>
-                            <p>₹324x1</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="font-weight:bold;text-decoration: underline;">
-                            <p>Internet handling fees</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Convenience Fee</p>
-                        </td>
-                        <td>
-                            <p>₹67</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>CGST 9% + SGST 9%<br> 33AAACO9802B1ZX</p>
-                        </td>
-                        <td>
-                            <p>₹13.51</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                    </tr>
-                </tbody>
+    <div class="container">
+        <!-- Movie Details -->
+        <div class="movie-details">
+            <h3>Love Today - Tamil</h3>
+            <h5>Tamil | 2D | U/A</h5>
+            <table>
+                <tr>
+                    <td><strong>Date</strong></td>
+                    <td>18/11/2022 11:50 A.M.</td>
+                </tr>
+                <tr>
+                    <td><strong>Theatre</strong></td>
+                    <td>Inox Selvam Square - Vellore</td>
+                </tr>
+                <tr>
+                    <td><strong>Screen</strong></td>
+                    <td>Screen-1</td>
+                </tr>
+                <tr>
+                    <td><strong>Seat</strong></td>
+                    <td>CLUB | F</td>
+                </tr>
             </table>
         </div>
-        <div>
-            <h5>Total</h5>
-            <h3>₹653</h3>
+
+        <!-- Contact Details -->
+        <div class="contact-form">
+            <h5>Contact Details</h5>
+            <input type="email" placeholder="E-mail" required>
+            <input type="number" placeholder="Mobile" required>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+            <h5>Order Summary</h5>
+            <table>
+                <tr>
+                    <td>Tickets x1</td>
+                    <td>₹324</td>
+                </tr>
+                <tr>
+                    <td>Convenience Fee</td>
+                    <td>₹67</td>
+                </tr>
+                <tr>
+                    <td>CGST 9% + SGST 9%</td>
+                    <td>₹13.51</td>
+                </tr>
+            </table>
+            <div class="total">Total: ₹653</div>
+            <br>
             <a href="Bill.html"><input type="submit" value="CONTINUE"></a>
-        </div>
-        <div style="background: #f5f5f5 !important; border-color: #e2e2e2 !important; color: #000; margin-top: 20px;">
-            <a href="2.html"><input type="submit" value="CANCEL"></a>
-
+            <a href="2.html"><input type="button" value="CANCEL"></a>
         </div>
     </div>
-    <div class="b4">
+
+    <!-- Promo Code Section -->
+    <div class="promo-section" style="margin-top:20px;">
         <h5>Promotion Code</h5>
-
-        <div style="position: relative;">
-
-            <input name="txtCode" type="text" placeholder="Enter Promotional Code"
-                style="height:40px ;border:2px;border-radius: 2px;" size="50" autofocus autocomplete="off">
-
-
-        </div>
-        <input type="button" name="apply" value="Apply" style="height: 40px;width:60px;margin-left:180px;"
-            onclick="AjaxCalls.applyOffer(); return false;">
-
+        <input type="text" placeholder="Enter Promotional Code" autocomplete="off">
+        <input type="button" value="Apply">
     </div>
-
-
-    <script src="script.js"></script>
 
 </body>
-
 </html>
